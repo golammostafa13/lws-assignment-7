@@ -27,7 +27,7 @@ export default function Transaction({slNo, transaction }) {
 
     return (
         <li className={`transaction ${type}`}>
-            <p>{slNo} {name}</p>
+            <p>{(pageNo-1)*10 + slNo} {name}</p>
             <div className="right">
                 <p>৳ {numberWithCommas(amount)}</p>
                 <Link to="/"> 
