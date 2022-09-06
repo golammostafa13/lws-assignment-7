@@ -38,6 +38,7 @@ export default function Transactions() {
             <div className="conatiner_of_list_of_transactions">
                 <ul>{content}</ul>
             </div>
+            { transactions.length > 5 && <Link style={{textDecoration: "none"}} to="/transactions"> <button className="btn">View All</button> </Link>}
         </div>
     );
 }
