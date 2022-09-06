@@ -10,7 +10,6 @@ export default function Transactions() {
     const { transactions, isLoading, isError } = useSelector(
         (state) => state.transaction
     );
-
     useEffect(() => {
         dispatch(fetchTransactions());
     }, [dispatch]);
@@ -39,7 +38,6 @@ export default function Transactions() {
             <div className="conatiner_of_list_of_transactions">
                 <ul>{content}</ul>
             </div>
-            { transactions.length > 5 && <Link to="/transactions"> <button className="see_all">View All</button> </Link>}
         </div>
     );
 }

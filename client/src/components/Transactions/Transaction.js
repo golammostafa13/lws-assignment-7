@@ -1,17 +1,19 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import deleteImage from "../../assets/images/delete.svg";
 import editImage from "../../assets/images/edit.svg";
 import {
     editActive,
     removeTransaction,
+    setPageNo,
     setSearched,
 } from "../../features/transaction/transactionSlice";
 import numberWithCommas from "../../utils/numberWithCommas";
 
-export default function Transaction({ slNo, transaction }) {
+export default function Transaction({slNo, transaction }) {
     const { name, amount, type, id } = transaction || {};
     const dispatch = useDispatch();
+    const {pageNo} = useSelector(state => state.transaction);
 
     const handleEdit = () => {
         dispatch(editActive(transaction));
@@ -20,6 +22,7 @@ export default function Transaction({ slNo, transaction }) {
 
     const handleDelete = () => {
         dispatch(removeTransaction(id));
+        dispatch(setPageNo(1))
     };
 
     return (
